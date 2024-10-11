@@ -1,0 +1,27 @@
+CALL_METHOD
+    Address("component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh")
+    "lock_fee"
+    Decimal("5000")
+;
+CALL_METHOD
+    Address("account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma")
+    "withdraw"
+    Address("resource_sim1t5gw5ttk3lkuq8ly5m8xg4fqm59q88vjy7kz3x2s8nfk48tequ3l7j")
+    Decimal("900")
+;
+TAKE_FROM_WORKTOP
+    Address("resource_sim1t5gw5ttk3lkuq8ly5m8xg4fqm59q88vjy7kz3x2s8nfk48tequ3l7j")
+    Decimal("900")
+    Bucket("bucket1")
+;
+CALL_METHOD
+    Address("component_sim1czc0eq9hnxja6lwkd4zgzxm3xz0ez5zm62h5675vpvjdmkxeypflsa")
+    "buy"
+    Bucket("bucket1")
+;
+CALL_METHOD
+    Address("account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma")
+    "try_deposit_batch_or_refund"
+    Expression("ENTIRE_WORKTOP")
+    Enum<0u8>()
+;
